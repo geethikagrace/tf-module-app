@@ -49,3 +49,12 @@ resource "aws_autoscaling_group" "asg" {
     version = "$Latest"
   }
 }
+
+dynamic "tag" {
+  for_each = local.asg_tags
+  content {
+    key                 = tag.value.key
+    propagate_at_launch = true
+    value               = tag.value.value
+  }
+}
