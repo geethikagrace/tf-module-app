@@ -26,10 +26,9 @@ resource "aws_security_group" "sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = {
-    Name = "${var.name}-${var.env}-sg"
-  }
+  tags = merge(var.tags, { Name = "${var.name}-${var.env}-sg" })
 }
+
 resource "aws_launch_template" "template" {
   name_prefix            = "${var.name}-${var.env}-lt"
   image_id               = data.aws_ami.ami.id
