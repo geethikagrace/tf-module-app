@@ -69,7 +69,7 @@ resource "aws_lb_target_group" "main" {
 
 resource "aws_lb_listener_rule" "main" {
   listener_arn = var.listener_arn
-  priority     =var.listener_priority
+  priority     = var.listener_priority
 
   action {
     type             = "forward"
@@ -78,5 +78,6 @@ resource "aws_lb_listener_rule" "main" {
 
   condition {
     field  = "host-header"
-    values = [ local.dns_name]
+    values = [local.dns_name]
+  }
 }
