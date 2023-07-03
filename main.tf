@@ -64,5 +64,5 @@ resource "aws_lb_target_group" "main" {
   port     = var.app_port
   protocol = "HTTP"
   vpc_id   = var.vpc_id
-  tags     = merge(var.tags, { Name = "${var.name}-${var.env}-sg" })
+  tags     = merge(var.tags, { Name = "${var.name}-${var.env}-tg" })
 }
