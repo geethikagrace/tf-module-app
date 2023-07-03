@@ -77,7 +77,8 @@ resource "aws_lb_listener_rule" "main" {
   }
 
   condition {
-    field  = "host-header"
-    values = [local.dns_name]
+    host_header {
+      values = [local.dns_name]
+    }
   }
 }
