@@ -92,7 +92,7 @@ resource "aws_lb_listener_rule" "main" {
 }
 
 resource "aws_route53_record" "main" {
-  zone_id = var.domain_id
+  zone_id = var.zone_id
   name    = local.dns_name
   type    = "CNAME"
   ttl     = 30
