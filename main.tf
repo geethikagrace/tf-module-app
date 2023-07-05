@@ -86,7 +86,7 @@ resource "aws_lb_listener_rule" "main" {
 
   condition {
     host_header {
-      values = aws_lb_target_group.main.id
+      values = [local.dns_name]
     }
   }
 }
