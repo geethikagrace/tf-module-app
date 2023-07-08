@@ -6,5 +6,5 @@ locals {
 
  parameters = concat(var.parameters, [var.name])
 
- resource = [ for parameter in local.parameters : "arn:aws:ssm:us-east-1:${data.aws_caller_identity.identity.account_id}:parameter/${var.env}.${var.parameters}.*"]
+ resource = [ for parameter in local.parameters : "arn:aws:ssm:us-east-1:${data.aws_caller_identity.identity.account_id}:parameter/${var.env}.${parameters}.*"]
 }
